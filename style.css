@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(2019-ford-ranger-raptor-62.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: powderblue;
+    color: #fff;
+    top: 45%;
+    left: 12%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginbox button
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox button:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.loginbox input[type="email"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+h3{
+	font-size: 50px;
+	font-family:Impact, Charcoal, sans-serif
+}
+h5{
+	font-size: 25px;
+	 position: absolute;
+  bottom: 10px;
+  width: 50%;
+  ;
+}

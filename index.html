@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css"></head>
+<body>
+  <h3 >    USEDCARSMOHALI.COM</h3>
+<div id="demo" class="loginbox">
+  <h1 id="demo"><center>Login</h2>
+  <form>
+    <h1>USERNAME</h1>
+  <input type="email" id="email" placeholder="Username">
+  <h1>PASSWORD</h1>
+  <input type="password" id="password1" placeholder="password">
+ <center> <button type="button" onclick="f1()">Change Content</button>
+</form>
+</div>
+<h5> &nbsp one place for all the luxury cars in tricity</h5>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script>
+  var q1=document.getElementById("email").value;
+  var p1=document.getElementById("password1").value;
+  var reqObject= {
+    "email": q1,
+    "password": p1
+  }
+
+
+  var reqBody = JSON.stringify(reqObject);
+
+  function f1()
+  {
+          var q1=document.getElementById("email").value;
+          var p1=document.getElementById("password1").value;
+          var reqObject=
+           {
+            "email": q1,
+            "password": p1
+           }
+    
+    var xhr = new XMLHttpRequest();
+    document.getElementById("demo")
+    xhr.open("GET", "https://reqres.in/api/login", true);
+
+    //Send the proper header information along with the request
+    xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function()
+      {
+        if( xhr.readyState == 4) 
+        {
+         window.location="file:///C:/Users/Dell/Desktop/carsajaxfinal/main.html";
+          console.log(xhr.responseText);
+        }
+      }
+    
+    xhr.onload = function()
+    {
+      //console.log("This the response from server", xhr.responseText);
+    };
+  //console.log(typeof reqBody);
+  xhr.send(reqObject);
+
+  }
+
+
+//Send an AJAX request when the page loads
+$(document).ready(function(){
+  console.log('document is ready');
+
+  $.ajax({
+    url: "https://reqres.in/api/login",
+    type: "POST",
+    data: reqObject,
+    success: function(response){
+        console.log(response);
+    },
+    error: function(jqXHR, errorText, error){
+
+      console.log("We have an error", error);
+    }
+});
+});
+
+  </script>
+</body>
+</html>
