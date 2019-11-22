@@ -92,7 +92,42 @@ function loadDoc()
 
 }
 </script>
-<
+<script>
+function fun() {
+  var xhttp;
+  var url="https://reqres.in/api/users?page=2";
+  
+  
+  if (window.XMLHttpRequest) {
+
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+  } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("namesss").innerHTML = this.responseText;
+      var obj=JSON.parse(this.responseText);
+      
+      for (i=0;i<4;i++){
+      var res=res+'<br><br>'+"   name->"+obj.data[i].first_name+'<br>'; 
+      var res=res+"  email->"+obj.data[i].email+'<br>';
+      var res=res+"<img src='"+obj.data[i].avatar+"'>"+'<br>';    
+    
+    }
+  
+
+      document.getElementById("namesss").innerHTML=res;
+    }
+  };
+  xhttp.open("GET", url , true);
+
+  xhttp.send();
+  console.log(url);
+}
+</script>
 <div id="googleMap" style="min-height: 100%;"></div>
 <script>
 function myMap() {
@@ -104,8 +139,9 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5fsW6kW_5v74ai44HLTLLZybi9OVPhc&callback=myMap"></script>
-
-
+<div id="namesss" class="container" style="min-height: 50%;">
+	<center>You can see some previous customers here and contact them for their experience<button onclick="fun()">click here</button></center>
+	</div>
   <div class="footer" id="page2" style="background: #161616; color:white;" >
 
                   <div class="container">
